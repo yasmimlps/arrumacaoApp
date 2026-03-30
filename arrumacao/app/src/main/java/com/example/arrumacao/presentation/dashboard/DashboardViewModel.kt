@@ -3,7 +3,6 @@ package com.example.arrumacao.presentation.dashboard
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.arrumacao.core.dispatchers.AppDispatchers
-import com.example.arrumacao.domain.model.DashboardData
 import com.example.arrumacao.domain.repository.FinanceRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,11 +21,20 @@ class DashboardViewModel @Inject constructor(
     val uiState: StateFlow<DashboardState> = _uiState.asStateFlow()
 
     init {
-        loadDashboard()
+        onEvent(DashboardEvent.OnRefresh)
     }
 
-    private fun loadDashboard() {
+    fun onEvent(event: DashboardEvent) {
+        when (event) {
+            is DashboardEvent.OnRefresh -> loadDashboardData()
+            is DashboardEvent.OnAddTransactionClicked -> { /* TODO */ }
+            is DashboardEvent.OnDeleteTransaction -> { /* TODO */ }
+        }
+    }
+
+    private fun loadDashboardData() {
         viewModelScope.launch((dispatchers.io)) {
+            _uiState.value = DashboardState.Loading
             try {
                 val data = repository.getDashboardData()
                 _uiState.value = DashboardState.Success(data)
@@ -35,10 +43,4 @@ class DashboardViewModel @Inject constructor(
             }
         }
     }
-}
-
-sealed class DashboardState {
-    object Loading : DashboardState()
-    data class Success(val data: DashboardData) : DashboardState()
-    data class Error(val message: String) : DashboardState()
 }
