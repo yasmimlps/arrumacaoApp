@@ -15,6 +15,8 @@ private val DarkColorScheme = darkColorScheme(
     primary = PrimaryGreen,
     secondary = SecondaryBlue,
     surface = BackgroundWhite,
+    onSurface = LightBlueGrey,
+    onBackground = LightBlueGrey,
     onSurfaceVariant = LightBlueGreyTransparent
 )
 
@@ -22,6 +24,8 @@ private val LightColorScheme = lightColorScheme(
     primary = PrimaryGreen,
     secondary = SecondaryBlue,
     surface = BackgroundWhite,
+    onSurface = DarkNavy,
+    onBackground = DarkNavy,
     onSurfaceVariant = labelColorMedium
 )
 

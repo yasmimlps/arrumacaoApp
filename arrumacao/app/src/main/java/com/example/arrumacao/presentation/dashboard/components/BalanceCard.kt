@@ -53,15 +53,15 @@ fun BalanceCard(
         modifier = Modifier
             .fillMaxWidth()
             .coloredShadow(
-                color = DarkTextGreen,
-                alpha = 0.08f,
+                color = MaterialTheme.colorScheme.onSurface,
+                alpha = 0.09f,
                 blurRadius = MaterialTheme.spacing.extraLarge,
                 borderRadius = MaterialTheme.spacing.large
             )
     ) {
         Surface(
             modifier = Modifier.fillMaxWidth(),
-            shape = MaterialTheme.shapes.large,
+            shape = MaterialTheme.shapes.extraLarge,
             color = Color.Transparent
         ) {
             Column(
