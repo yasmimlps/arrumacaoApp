@@ -22,6 +22,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -31,6 +32,7 @@ import com.example.arrumacao.core.util.toBRL
 import com.example.arrumacao.presentation.theme.AppLetterSpacing
 import com.example.arrumacao.presentation.theme.DarkTextGreen
 import com.example.arrumacao.presentation.theme.GradientEnd
+import com.example.arrumacao.presentation.theme.GradientMiddle
 import com.example.arrumacao.presentation.theme.GradientStart
 import com.example.arrumacao.presentation.theme.spacing
 import com.example.arrumacao.presentation.theme.iconSize
@@ -42,7 +44,9 @@ fun BalanceCard(
     onTendencyClick: () -> Unit
 ) {
     val gradientBrush = Brush.linearGradient(
-        colors = listOf(GradientStart, GradientEnd)
+        colors = listOf(GradientStart, GradientMiddle, GradientEnd),
+        start = Offset(0f, 0f),
+        end = Offset(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY)
     )
 
     Box(

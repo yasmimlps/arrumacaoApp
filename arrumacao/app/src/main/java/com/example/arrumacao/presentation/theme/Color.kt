@@ -17,8 +17,9 @@ val LightBlueGreyTransparent = LightBlueGrey.copy(alpha = 0.7f)
 
 val BackgroundSurface = Color(0xFFF9FAFB)
 
-val GradientStart = Color(0xFFE0F7F2)
-val GradientEnd = Color(0xFFE1F5FE)
+val GradientStart = Color(0xFFEDFCE5)
+val GradientMiddle = Color(0xFFE5FCF5)
+val GradientEnd = Color(0xFFDDF4FD)
 
 val HighlightBlue = Color(0xFFE3F2FD)
 val IconTendencyBlue = Color(0xFF81D4FA)
