@@ -9,23 +9,26 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.runtime.CompositionLocalProvider
 
 private val DarkColorScheme = darkColorScheme(
     primary = PrimaryGreen,
     secondary = SecondaryBlue,
-    surface = BackgroundWhite
+    surface = BackgroundWhite,
+    onSurfaceVariant = LightBlueGreyTransparent
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = PrimaryGreen,
     secondary = SecondaryBlue,
-    surface = BackgroundWhite
+    surface = BackgroundWhite,
+    onSurfaceVariant = labelColorMedium
 )
 
 @Composable
 fun ArrumacaoTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -37,9 +40,13 @@ fun ArrumacaoTheme(
         else -> LightColorScheme
     }
 
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = AppTypography,
-        content = content
-    )
+    CompositionLocalProvider(LocalSpacing provides Spacing(),
+        LocalIconSize provides IconSize()) {
+        MaterialTheme(
+            colorScheme = colorScheme,
+            typography = AppTypography,
+            shapes = AppShapes,
+            content = content
+        )
+    }
 }

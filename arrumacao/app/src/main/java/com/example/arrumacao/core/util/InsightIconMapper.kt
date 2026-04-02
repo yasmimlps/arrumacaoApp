@@ -1,4 +1,4 @@
-package com.example.arrumacao.presentation.dashboard
+package com.example.arrumacao.core.util
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ShowChart
