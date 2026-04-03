@@ -1,8 +1,8 @@
 package com.example.arrumacao.presentation.dashboard.components
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -11,12 +11,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.example.arrumacao.core.util.toBRL
 import com.example.arrumacao.presentation.theme.*
 
 @Composable
@@ -28,18 +26,23 @@ fun SummaryCard(
     modifier: Modifier = Modifier
 ) {
     Surface(
-        modifier = modifier
-            .shadow(elevation = 2.dp, shape = RoundedCornerShape(16.dp)),
-        shape = RoundedCornerShape(16.dp),
-        color = Color.White
+        modifier = modifier,
+        shape = MaterialTheme.shapes.large,
+        color = MaterialTheme.colorScheme.surface,
+        border = BorderStroke(
+            width = MaterialTheme.borderWidth.thin,
+            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.09f)
+        )
     ) {
-        Column(modifier = Modifier.padding(MaterialTheme.spacing.medium)) {
+        Column(
+            modifier = Modifier.padding(MaterialTheme.spacing.medium)
+        ) {
             Box(
                 modifier = Modifier
-                    .size(40.dp)
-                    .clip(RoundedCornerShape(12.dp))
-                    .background(IconPurple)
-                    .padding(8.dp),
+                    .size(MaterialTheme.iconSize.extraLarge)
+                    .clip(MaterialTheme.shapes.medium)
+                    .background(iconColor.copy(alpha = 0.15f))
+                    .padding(MaterialTheme.spacing.small),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
@@ -48,22 +51,20 @@ fun SummaryCard(
                     tint = iconColor
                 )
             }
-            Spacer(modifier = Modifier.height(16.dp))
+
+            Spacer(modifier = Modifier.height(MaterialTheme.spacing.small))
 
             Text(
                 text = title,
                 style = MaterialTheme.typography.labelSmall,
-                color = AccentGreen,
-                fontWeight = FontWeight.Medium,
-                letterSpacing = 0.5.sp
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
 
             Text(
-                text = "R$ ${"%.2f".format(value)}",
+                text = value.toBRL(),
                 style = MaterialTheme.typography.titleMedium,
-                color = DarkTextGreen,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(top = 2.dp)
+                fontWeight = FontWeight.Bold
             )
         }
     }

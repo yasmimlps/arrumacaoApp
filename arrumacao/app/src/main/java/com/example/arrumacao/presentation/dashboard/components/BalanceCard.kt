@@ -104,6 +104,7 @@ fun BalanceCard(
                             text = "SALDO LÍQUIDO",
                             style = MaterialTheme.typography.labelSmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            fontWeight = FontWeight.Medium,
                         )
 
                         Spacer(modifier = Modifier.height(MaterialTheme.spacing.extraSmall))

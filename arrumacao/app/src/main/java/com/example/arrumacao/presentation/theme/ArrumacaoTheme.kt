@@ -45,7 +45,7 @@ fun ArrumacaoTheme(
     }
 
     CompositionLocalProvider(LocalSpacing provides Spacing(),
-        LocalIconSize provides IconSize()) {
+        LocalIconSize provides IconSize(), LocalBorderWidth provides BorderWidth()) {
         MaterialTheme(
             colorScheme = colorScheme,
             typography = AppTypography,

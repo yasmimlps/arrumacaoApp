@@ -23,7 +23,7 @@ val GradientEnd = Color(0xFFDDF4FD)
 
 val HighlightBlue = Color(0xFFE3F2FD)
 val IconTendencyBlue = Color(0xFF81D4FA)
-val IconPurple = Color(0xFFCE93D8)
+val IconPurple = Color(0xFF3B034F)
 val IconGreen = Color(0xFFA5D6A7)
 
 

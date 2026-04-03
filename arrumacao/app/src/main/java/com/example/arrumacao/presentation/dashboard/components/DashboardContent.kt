@@ -64,7 +64,7 @@ fun DashboardContent(data: DashboardData) {
                         title = "GASTO PREVISTO",
                         value = 5100.00,
                         icon = Icons.Default.CalendarToday,
-                        iconColor = DarkTextGreen,
+                        iconColor = IconPurple,
                         modifier = Modifier.weight(1f)
                     )
                 }
