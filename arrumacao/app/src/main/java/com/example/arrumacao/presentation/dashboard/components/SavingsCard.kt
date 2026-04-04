@@ -1,5 +1,6 @@
 package com.example.arrumacao.presentation.dashboard.components
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -25,9 +26,13 @@ fun SavingsCard(
 ) {
     Surface(
         modifier = modifier,
-        shape = MaterialTheme.shapes.medium,
+        shape = MaterialTheme.shapes.large,
         color = MaterialTheme.colorScheme.surface,
-        shadowElevation = MaterialTheme.spacing.extraSmall
+        border = BorderStroke(
+            width = MaterialTheme.borderWidth.thin,
+            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.09f)
+        )
+
     ) {
         Column(
             modifier = Modifier.padding(MaterialTheme.spacing.medium)
@@ -40,7 +45,7 @@ fun SavingsCard(
                 Box(
                     modifier = Modifier
                         .size(MaterialTheme.iconSize.extraLarge)
-                        .clip(MaterialTheme.shapes.small)
+                        .clip(MaterialTheme.shapes.medium)
                         .background(IconGreen.copy(alpha = 0.3f)),
                     contentAlignment = Alignment.Center
                 ) {
@@ -55,7 +60,7 @@ fun SavingsCard(
                 Text(
                     text = savingsLabel,
                     style = MaterialTheme.typography.titleMedium,
-                    color = DarkTextGreen,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     fontWeight = FontWeight.Bold
                 )
             }
@@ -65,8 +70,8 @@ fun SavingsCard(
             Text(
                 text = "POUPANÇA",
                 style = MaterialTheme.typography.labelSmall,
-                color = AccentGreen,
-                fontWeight = FontWeight.Medium
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                fontWeight = FontWeight.Bold
             )
 
             Spacer(modifier = Modifier.height(MaterialTheme.spacing.small))

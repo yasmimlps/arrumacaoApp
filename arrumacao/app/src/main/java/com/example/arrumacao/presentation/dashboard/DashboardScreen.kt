@@ -30,7 +30,7 @@ fun DashboardScreen(
                 }
             }
             is DashboardState.Success -> {
-                DashboardContent(data = state.data)
+                DashboardContent(data = state.data, onEvent = viewModel::onEvent)
             }
             is DashboardState.Error -> {
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {

@@ -29,6 +29,7 @@ class DashboardViewModel @Inject constructor(
             is DashboardEvent.OnRefresh -> loadDashboardData()
             is DashboardEvent.OnAddTransactionClicked -> { /* TODO */ }
             is DashboardEvent.OnDeleteTransaction -> { /* TODO */ }
+            is DashboardEvent.OnTendencyClicked -> { /* TODO */ }
         }
     }
 
