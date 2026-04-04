@@ -78,14 +78,15 @@ fun DashboardContent(data: DashboardData, onEvent: (DashboardEvent) -> Unit) {
 
                 Spacer(modifier = Modifier.height(MaterialTheme.spacing.large))
 
-                Text(
-                    text = "Gastos por Categoria",
-                    style = MaterialTheme.typography.titleLarge,
-                    color = DarkTextGreen,
-                    modifier = Modifier.padding(vertical = MaterialTheme.spacing.small)
+                ExpenseByCategoryCard(
+                    modifier = Modifier.fillMaxWidth(),
+                    totalGastoLabel = data.totalToPay,
+                    moradiaPercentage = 0.45f,
+                    lazerPercentage = 0.30f,
+                    outrosPercentage = 0.25f
                 )
 
-                Spacer(modifier = Modifier.height(MaterialTheme.spacing.doubleLarge)) // Respiro final para o FAB
+                Spacer(modifier = Modifier.height(MaterialTheme.spacing.doubleLarge))
             }
         }
     }
@@ -137,7 +138,7 @@ fun PredictedFinalBalanceCard(
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
                 Text(
-                    text = value.toBRL(), // Nossa extensão de formatação de moeda!
+                    text = value.toBRL(),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )
